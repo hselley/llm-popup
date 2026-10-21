@@ -1,0 +1,63 @@
+.ollama-chat-box {
+  width: 560px;
+  spacing: 8px;
+}
+
+.ollama-scroll {
+  height: 420px;
+}
+
+.ollama-messages {
+  spacing: 10px;
+  padding: 4px 8px 4px 0;
+}
+
+.ollama-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  padding: 24px;
+}
+
+.ollama-msg {
+  padding: 8px 10px;
+  border-radius: 10px;
+  spacing: 4px;
+}
+
+.ollama-msg-user {
+  background-color: rgba(53, 132, 228, 0.25);
+}
+
+.ollama-msg-assistant {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.ollama-msg-assistant .ollama-msg-text {
+  font-family: monospace;
+}
+
+.ollama-msg-error {
+  background-color: rgba(224, 27, 36, 0.3);
+}
+
+.ollama-role {
+  font-weight: bold;
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.ollama-entry {
+  min-height: 56px;
+}
+
+.ollama-buttons {
+  spacing: 6px;
+}
+
+.ollama-button {
+  padding: 4px 14px;
+}
+
+.ollama-status {
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.6);
+}

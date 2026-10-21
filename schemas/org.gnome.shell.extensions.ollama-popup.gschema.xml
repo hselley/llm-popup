@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.ollama-popup"
+          path="/org/gnome/shell/extensions/ollama-popup/">
+    <key name="profiles" type="s">
+      <default><![CDATA['[{"id":"ollama-local","name":"Ollama local","type":"ollama","url":"http://localhost:11434","model":"qwen3-coder:latest"}]']]></default>
+      <summary>Perfiles de proveedor (JSON)</summary>
+      <description>Lista de objetos {id, name, type, url, model}. Las API keys se guardan en el llavero de GNOME.</description>
+    </key>
+    <key name="active-profile" type="s">
+      <default>'ollama-local'</default>
+      <summary>ID del perfil activo</summary>
+    </key>
+    <key name="system-prompt" type="s">
+      <default>'Eres un asistente útil y conciso. Responde en español.'</default>
+      <summary>Prompt de sistema</summary>
+    </key>
+    <key name="llm-popup-shortcut" type="as">
+      <default><![CDATA[['<Super><Alt>w']]]></default>
+      <summary>Atajo para abrir/cerrar el popup</summary>
+      <description>Nombre único del atajo: el registro de mutter es global y «toggle-shortcut» ya lo usa la extensión Caffeine.</description>
+    </key>
+  </schema>
+</schemalist>

@@ -1,0 +1,19 @@
+# Salida de build (se genera con ./build.sh)
+dist/
+
+# Paquetes
+*.zip
+
+# Ficheros de debugging que no deben versionarse
+*.fix
+*.broken
+*.broken2
+*.bak
+*~
+
+# Esquema compilado (se genera en build/schemas)
+gschemas.compiled
+*.compiled
+
+# Sistema
+.DS_Store

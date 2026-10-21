@@ -1,0 +1,9 @@
+{
+  "uuid": "ollama-popup@geeker",
+  "name": "LLM Popup",
+  "description": "Popup en la barra superior para enviar consultas a LLMs: Ollama local, APIs compatibles con OpenAI, Anthropic (Claude) y Google Gemini.",
+  "shell-version": ["51"],
+  "url": "https://github.com/geeker/ollama-popup",
+  "settings-schema": "org.gnome.shell.extensions.ollama-popup",
+  "version": 1
+}
