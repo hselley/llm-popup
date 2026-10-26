@@ -3,8 +3,8 @@
 **Español** · [English](README.md)
 
 Extensión de **GNOME Shell** que abre un popup en la barra superior para
-conversar con modelos de lenguaje: **Ollama local**, APIs **compatibles con
-OpenAI**, **Anthropic (Claude)** y **Google Gemini**.
+conversar con modelos de lenguaje: **Ollama local**, **llama.cpp** local,
+APIs **compatibles con OpenAI**, **Anthropic (Claude)** y **Google Gemini**.
 
 > **GNOME Shell 51** · Licencia **GPL-3.0-or-later** ·
 > [extensions.gnome.org](https://extensions.gnome.org/)
