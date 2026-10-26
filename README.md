@@ -1,5 +1,7 @@
 # LLM Popup
 
+**English** · [Español](README.es.md)
+
 A **GNOME Shell** extension that opens a popup in the top bar to chat with
 language models: **local Ollama**,  local llama.cpp,
 **OpenAI-compatible** APIs, **Anthropic (Claude)** and
