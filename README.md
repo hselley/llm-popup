@@ -1,8 +1,9 @@
 # LLM Popup
 
 A **GNOME Shell** extension that opens a popup in the top bar to chat with
-language models: **local Ollama**, **OpenAI-compatible** APIs,
-**Anthropic (Claude)** and **Google Gemini**.
+language models: **local Ollama**,  local llama.cpp,
+**OpenAI-compatible** APIs, **Anthropic (Claude)** and
+**Google Gemini**.
 
 > **GNOME Shell 51** · **GPL-3.0-or-later** license ·
 > [extensions.gnome.org](https://extensions.gnome.org/)
@@ -68,7 +69,7 @@ gnome-extensions disable llm-popup@geeker && gnome-extensions enable llm-popup@g
 `Preferences → LLM Popup`:
 
 | Setting | Description |
-|---|---|
+| --- | --- |
 | **Profiles** | Add/edit providers: type, base URL and model |
 | **API key** | Stored in the GNOME keyring (only needed for OpenAI/Anthropic/Gemini; Ollama does not need one) |
 | **System prompt** | Initial instructions for the model |
@@ -77,7 +78,7 @@ gnome-extensions disable llm-popup@geeker && gnome-extensions enable llm-popup@g
 ### Where things are stored
 
 | What | Where |
-|---|---|
+| --- | --- |
 | Profiles, prompt and shortcut | GSettings `org.gnome.shell.extensions.llm-popup` |
 | API keys | libsecret · schema `org.gnome.shell.extensions.llm-popup` · attribute `profile=<id>` |
 | History | `~/.local/share/llm-popup@geeker/history/<conv>.json` (one per conversation) |
@@ -113,7 +114,7 @@ assigns the version number and users receive the update notification.
 ## Project structure
 
 | File | Role |
-|---|---|
+| --- | --- |
 | `extension.js` | Popup, menu, history, shortcut and query sending |
 | `prefs.js` | Preferences page (profiles, API key, shortcut) |
 | `providers.js` | HTTP adapters: Ollama, OpenAI-compatible, Anthropic, Gemini |
