@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Héctor Selley
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 // Conectores para distintos proveedores de LLM usando libsoup 3.
 // Todos exponen: listModels({apiKey, cancellable}) y
 // chat({model, system, history, apiKey, onChunk, cancellable}).

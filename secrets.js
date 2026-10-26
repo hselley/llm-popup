@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Héctor Selley
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 // Almacenamiento de API keys en el llavero de GNOME (libsecret).
 import Gio from 'gi://Gio';
 import Secret from 'gi://Secret?version=1';

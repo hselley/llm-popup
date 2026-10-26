@@ -43,14 +43,14 @@ path, uuid = sys.argv[1], sys.argv[2]
 meta = json.load(open(path))
 if meta.get("uuid") != uuid:
     raise SystemExit(f"ERROR: uuid '{meta.get('uuid')}' ≠ '{uuid}'")
-for req in ("name", "description", "shell-version", "version"):
+for req in ("name", "description", "shell-version"):
     if req not in meta:
         raise SystemExit(f"ERROR: falta '{req}' en metadata.json")
 if not meta.get("shell-version"):
     raise SystemExit("ERROR: 'shell-version' vacío")
 print(f"  uuid          : {meta['uuid']}")
 print(f"  nombre        : {meta['name']}")
-print(f"  versión       : {meta['version']}")
+print("  versión       : asignada por extensions.gnome.org")
 print(f"  shell-version : {', '.join(meta['shell-version'])}")
 PY
 

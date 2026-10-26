@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Héctor Selley
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 // Gestión de perfiles de proveedor (compartido entre extension.js y prefs.js).
 import GLib from 'gi://GLib';
 

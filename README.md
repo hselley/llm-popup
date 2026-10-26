@@ -4,7 +4,7 @@ Extensión de **GNOME Shell** que abre un popup en la barra superior para
 conversar con modelos de lenguaje: **Ollama local**, APIs **compatibles con
 OpenAI**, **Anthropic (Claude)** y **Google Gemini**.
 
-> **GNOME Shell 51** · Licencia **GPL-3.0** ·
+> **GNOME Shell 51** · Licencia **GPL-3.0-or-later** ·
 > [extensions.gnome.org](https://extensions.gnome.org/)
 
 ---
@@ -125,4 +125,4 @@ el zip; los usuarios reciben la notificación.
 
 ## Licencia
 
-[GPL-3.0](LICENSE) © Héctor Selley.
+[GPL-3.0-or-later](LICENSE) © Héctor Selley.
