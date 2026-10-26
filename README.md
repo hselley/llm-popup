@@ -43,17 +43,17 @@ o instalar desde la web.
 ### Compilando desde el código
 
 ```bash
-git clone https://github.com/hselley/ollama-popup.git
-cd ollama-popup
+git clone https://github.com/hselley/llm-popup.git
+cd llm-popup
 ./build.sh
-gnome-extensions install --force dist/ollama-popup@geeker.shell-extension.zip
-gnome-extensions enable ollama-popup@geeker
+gnome-extensions install --force dist/llm-popup@geeker.shell-extension.zip
+gnome-extensions enable llm-popup@geeker
 ```
 
 Tras un cambio solo en JavaScript basta recargarla:
 
 ```bash
-gnome-extensions disable ollama-popup@geeker && gnome-extensions enable ollama-popup@geeker
+gnome-extensions disable llm-popup@geeker && gnome-extensions enable llm-popup@geeker
 ```
 
 ## Uso
@@ -78,9 +78,9 @@ gnome-extensions disable ollama-popup@geeker && gnome-extensions enable ollama-p
 
 | Qué | Dónde |
 |---|---|
-| Perfiles, prompt y atajo | GSettings `org.gnome.shell.extensions.ollama-popup` |
-| API keys | libsecret · esquema `org.gnome.shell.extensions.ollama-popup` · atributo `profile=<id>` |
-| Historial | `~/.local/share/ollama-popup@geeker/history/<conv>.json` (uno por conversación) |
+| Perfiles, prompt y atajo | GSettings `org.gnome.shell.extensions.llm-popup` |
+| API keys | libsecret · esquema `org.gnome.shell.extensions.llm-popup` · atributo `profile=<id>` |
+| Historial | `~/.local/share/llm-popup@geeker/history/<conv>.json` (uno por conversación) |
 
 ### Tecla Copilot / teclas especiales
 
@@ -97,7 +97,7 @@ Comprobar qué emite una tecla: `wev` (Wayland) o `evtest` (nivel dispositivo).
 ## Empaquetar y publicar
 
 ```bash
-./build.sh          # genera dist/ollama-popup@geeker.shell-extension.zip
+./build.sh          # genera dist/llm-popup@geeker.shell-extension.zip
 ```
 
 Publicar en **extensions.gnome.org**:

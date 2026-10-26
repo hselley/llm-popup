@@ -2,10 +2,10 @@
 # Empaqueta la extensión en un .zip listo para extensions.gnome.org.
 #
 #   ./build.sh
-#   → dist/ollama-popup@geeker.shell-extension.zip
+#   → dist/llm-popup@geeker.shell-extension.zip
 set -euo pipefail
 
-UUID="ollama-popup@geeker"
+UUID="llm-popup@geeker"
 ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 DIST="$ROOT/dist"
 STAGE="$DIST/$UUID"

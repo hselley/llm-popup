@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.ollama-popup"
-          path="/org/gnome/shell/extensions/ollama-popup/">
+  <schema id="org.gnome.shell.extensions.llm-popup"
+          path="/org/gnome/shell/extensions/llm-popup/">
     <key name="profiles" type="s">
       <default><![CDATA['[{"id":"ollama-local","name":"Ollama local","type":"ollama","url":"http://localhost:11434","model":"qwen3-coder:latest"}]']]></default>
       <summary>Perfiles de proveedor (JSON)</summary>

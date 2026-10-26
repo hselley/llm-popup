@@ -1,8 +1,8 @@
 {
-  "uuid": "ollama-popup@geeker",
+  "uuid": "llm-popup@geeker",
   "name": "LLM Popup",
   "description": "Top-bar popup for querying LLMs: local Ollama, OpenAI-compatible APIs, Anthropic (Claude) and Google Gemini.\n\nFeatures:\n* Multiple provider profiles, each with its own URL and model\n* Streaming responses\n* Local conversation history\n* API keys stored in the GNOME keyring (libsecret), never in plain text\n* Configurable keyboard shortcut, including special keys such as the Copilot key\n\nNetwork access: the extension only connects to the provider endpoints you configure.\nClipboard access: the \"copy response\" action copies the last response to the clipboard, and only when you trigger it.",
   "shell-version": ["51"],
-  "url": "https://github.com/hselley/ollama-popup",
-  "settings-schema": "org.gnome.shell.extensions.ollama-popup"
+  "url": "https://github.com/hselley/llm-popup",
+  "settings-schema": "org.gnome.shell.extensions.llm-popup"
 }

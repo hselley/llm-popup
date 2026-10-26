@@ -46,7 +46,7 @@ class OllamaIndicator extends PanelMenu.Button {
         this._focusIdleId = 0;
 
         const iconPath = extension.dir.get_child('icons')
-            .get_child('ollama-popup-symbolic.svg').get_path();
+            .get_child('llm-popup-symbolic.svg').get_path();
         this.add_child(new St.Icon({
             gicon: Gio.icon_new_for_string(iconPath),
             style_class: 'system-status-icon',
@@ -74,7 +74,7 @@ class OllamaIndicator extends PanelMenu.Button {
     }
 
     _buildMenu() {
-        this.menu.box.add_style_class_name('ollama-popup-menu');
+        this.menu.box.add_style_class_name('llm-popup-menu');
 
         // Selector de proveedor y de modelo
         this._providerItem = new PopupMenu.PopupSubMenuMenuItem('');
@@ -217,7 +217,7 @@ class OllamaIndicator extends PanelMenu.Button {
     _ensureHistoryDir() {
         if (this._historyDir)
             return this._historyDir;
-        const dir = GLib.build_filenamev([GLib.get_user_data_dir(), 'ollama-popup@geeker', 'history']);
+        const dir = GLib.build_filenamev([GLib.get_user_data_dir(), 'llm-popup@geeker', 'history']);
         const gdir = Gio.File.new_for_path(dir);
         try {
             if (!gdir.query_exists(null))

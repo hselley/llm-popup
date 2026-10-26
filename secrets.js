@@ -6,7 +6,7 @@ import Gio from 'gi://Gio';
 import Secret from 'gi://Secret?version=1';
 
 const SCHEMA = new Secret.Schema(
-    'org.gnome.shell.extensions.ollama-popup',
+    'org.gnome.shell.extensions.llm-popup',
     Secret.SchemaFlags.NONE,
     {profile: Secret.SchemaAttributeType.STRING});
 
