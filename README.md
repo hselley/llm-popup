@@ -43,7 +43,7 @@ o instalar desde la web.
 ### Compilando desde el código
 
 ```bash
-git clone https://github.com/geeker/ollama-popup.git
+git clone https://github.com/hselley/ollama-popup.git
 cd ollama-popup
 ./build.sh
 gnome-extensions install --force dist/ollama-popup@geeker.shell-extension.zip

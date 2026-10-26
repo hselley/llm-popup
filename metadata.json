@@ -3,7 +3,7 @@
   "name": "LLM Popup",
   "description": "Top-bar popup for querying LLMs: local Ollama, OpenAI-compatible APIs, Anthropic (Claude) and Google Gemini.",
   "shell-version": ["51"],
-  "url": "https://github.com/geeker/ollama-popup",
+  "url": "https://github.com/hselley/ollama-popup",
   "settings-schema": "org.gnome.shell.extensions.ollama-popup",
   "version": 1
 }
