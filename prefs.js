@@ -24,6 +24,12 @@ const OPENAI_EXAMPLES = [
     ['llama.cpp server (local)', 'http://localhost:8080/v1'],
 ];
 
+// GTK4 no conoce algunos keysyms recientes y los escribe como "0x...".
+// Aquí van los nombres que usa libxkbcommon, que es lo que entiende mutter.
+const KEYSYM_NAMES = new Map([
+    [0x10081247, 'XF86Assistant'],  // tecla Copilot / Asistente
+]);
+
 export default class LlmPopupPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         const settings = this.getSettings();
@@ -363,7 +369,10 @@ export default class LlmPopupPreferences extends ExtensionPreferences {
             if (MODIFIER_KEYS.has(keyval))
                 return true;
             const mods = state & Gtk.accelerator_get_default_mod_mask();
-            const accel = Gtk.accelerator_name(keyval, mods);
+            let accel = Gtk.accelerator_name(keyval, mods);
+            const name = KEYSYM_NAMES.get(keyval);
+            if (accel && name)
+                accel = accel.replace(/0x[0-9A-Fa-f]+$/, name);
             if (accel) {
                 shortcutRow.text = accel;
                 settings.set_strv('llm-popup-shortcut', [accel]);

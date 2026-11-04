@@ -24,8 +24,8 @@ APIs **compatibles con OpenAI**, **Anthropic (Claude)** y **Google Gemini**.
 - **API keys en el llavero de GNOME** (libsecret), nunca en texto plano en
   GSettings.
 - Compatible con **teclas especiales**: la tecla **Copilot** de los portátiles
-  ASUS emite `Shift`+`Super`+`F23`, así que se binda como
-  `<Shift><Super>F23` (o `<Shift><Super>XF86Assistant`).
+  ASUS emite `Shift`+`Super`+`F23`; según la versión de `xkeyboard-config`
+  produce `F23` (≤ 2.48) o `XF86Assistant` (≥ 2.49).
 - El campo de texto **recupera el foco al hacer clic** sobre él.
 - `Enter` envía · `Shift`+`Enter` añade salto de línea.
 
@@ -86,13 +86,18 @@ gnome-extensions disable llm-popup@geeker && gnome-extensions enable llm-popup@g
 
 ### Tecla Copilot / teclas especiales
 
-Algunos teclados (p. ej. ASUS) envían un **acorde** en lugar de una sola tecla.
-La tecla Copilot emite `Shift_L`+`Super_L`+`F23`, por eso el atajo debe
-incluir los modificadores:
+Algunos teclados (p. ej. ASUS) envían un **acorde** en lugar de una sola tecla,
+por eso el atajo debe incluir los modificadores. Lo más fácil es usar el botón
+de captura que hay junto al campo del atajo en las preferencias: púlsalo y
+después pulsa la tecla.
 
-```
-<Shift><Super>F23
-```
+La tecla Copilot emite `Shift`+`Super`+`F23`. Lo que produce ese acorde depende
+de la versión de `xkeyboard-config`:
+
+| `xkeyboard-config` | Keysym | Atajo a usar |
+|---|---|---|
+| ≤ 2.48 | `F23` | `<Shift><Super>F23` |
+| ≥ 2.49 | `XF86Assistant` | `<Shift><Super>XF86Assistant` |
 
 Comprobar qué emite una tecla: `wev` (Wayland) o `evtest` (nivel dispositivo).
 

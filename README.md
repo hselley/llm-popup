@@ -25,8 +25,8 @@ language models: **local Ollama**,  local llama.cpp,
 - **API keys in the GNOME keyring** (libsecret), never in plain text in
   GSettings.
 - **Special keys** support: the **Copilot** key on ASUS laptops emits
-  `Shift`+`Super`+`F23`, so it can be bound as
-  `<Shift><Super>F23` (or `<Shift><Super>XF86Assistant`).
+  `Shift`+`Super`+`F23`; depending on the `xkeyboard-config` version it
+  resolves to `F23` (≤ 2.48) or `XF86Assistant` (≥ 2.49).
 - The text field **regains focus when clicked**.
 - `Enter` sends · `Shift`+`Enter` inserts a line break.
 
@@ -87,13 +87,18 @@ gnome-extensions disable llm-popup@geeker && gnome-extensions enable llm-popup@g
 
 ### Copilot key / special keys
 
-Some keyboards (e.g. ASUS) send a **chord** instead of a single key.
-The Copilot key emits `Shift_L`+`Super_L`+`F23`, which is why the shortcut
-must include the modifiers:
+Some keyboards (e.g. ASUS) send a **chord** instead of a single key, so the
+shortcut must include the modifiers. The easiest way to set it is the capture
+button next to the shortcut field in the preferences: click it and then press
+the key.
 
-```
-<Shift><Super>F23
-```
+The Copilot key emits `Shift`+`Super`+`F23`. What that chord resolves to depends
+on the version of `xkeyboard-config`:
+
+| `xkeyboard-config` | Keysym | Shortcut to use |
+|---|---|---|
+| ≤ 2.48 | `F23` | `<Shift><Super>F23` |
+| ≥ 2.49 | `XF86Assistant` | `<Shift><Super>XF86Assistant` |
 
 To check what a key emits: `wev` (Wayland) or `evtest` (device level).
 
