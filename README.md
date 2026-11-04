@@ -26,7 +26,8 @@ language models: **local Ollama**,  local llama.cpp,
   GSettings.
 - **Special keys** support: the **Copilot** key on ASUS laptops emits
   `Shift`+`Super`+`F23`; depending on the `xkeyboard-config` version it
-  resolves to `F23` (≤ 2.48) or `XF86Assistant` (≥ 2.49).
+  resolves to `F23` (≤ 2.48) or `XF86Assistant` (≥ 2.49). Use the capture
+  button so the right keycode is stored.
 - The text field **regains focus when clicked**.
 - `Enter` sends · `Shift`+`Enter` inserts a line break.
 
@@ -95,10 +96,17 @@ the key.
 The Copilot key emits `Shift`+`Super`+`F23`. What that chord resolves to depends
 on the version of `xkeyboard-config`:
 
-| `xkeyboard-config` | Keysym | Shortcut to use |
+| `xkeyboard-config` | Keysym | How to bind it |
 |---|---|---|
 | ≤ 2.48 | `F23` | `<Shift><Super>F23` |
-| ≥ 2.49 | `XF86Assistant` | `<Shift><Super>XF86Assistant` |
+| ≥ 2.49 | `XF86Assistant` | Use the capture button |
+
+On `xkeyboard-config` ≥ 2.49, `XF86Assistant` also exists on a second, virtual
+keycode (`591`, `KEY_ASSISTANT`) at the base level. Mutter resolves a keysym to
+the first level where it appears, so writing `<Shift><Super>XF86Assistant` binds
+the wrong keycode. The capture button stores the physical keycode instead (for
+example `<Shift><Super>0xc9`), which is unambiguous. You can also type the
+keycode form by hand if you know it.
 
 To check what a key emits: `wev` (Wayland) or `evtest` (device level).
 

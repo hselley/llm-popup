@@ -24,10 +24,13 @@ const OPENAI_EXAMPLES = [
     ['llama.cpp server (local)', 'http://localhost:8080/v1'],
 ];
 
-// GTK4 no conoce algunos keysyms recientes y los escribe como "0x...".
-// Aquí van los nombres que usa libxkbcommon, que es lo que entiende mutter.
-const KEYSYM_NAMES = new Map([
-    [0x10081247, 'XF86Assistant'],  // tecla Copilot / Asistente
+// Keysyms que GTK4 no conoce y que además mutter resuelve a un keycode
+// equivocado. XF86Assistant también está en el keycode 591 (KEY_ASSISTANT)
+// en el nivel base, y mutter se queda con el primer nivel donde aparece el
+// keysym: elige 591 en vez del keycode real de la tecla Copilot (201).
+// Para estos keysyms guardamos el keycode físico, que no es ambiguo.
+const KEYSYMS_USE_KEYCODE = new Set([
+    0x10081247,  // XF86Assistant (tecla Copilot / Asistente)
 ]);
 
 export default class LlmPopupPreferences extends ExtensionPreferences {
@@ -359,7 +362,7 @@ export default class LlmPopupPreferences extends ExtensionPreferences {
 
         const keyController = new Gtk.EventControllerKey();
         keyController.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
-        keyController.connect('key-pressed', (_ctrl, keyval, _keycode, state) => {
+        keyController.connect('key-pressed', (_ctrl, keyval, keycode, state) => {
             if (!capturing)
                 return false;
             if (keyval === Gdk.KEY_Escape) {
@@ -370,9 +373,14 @@ export default class LlmPopupPreferences extends ExtensionPreferences {
                 return true;
             const mods = state & Gtk.accelerator_get_default_mod_mask();
             let accel = Gtk.accelerator_name(keyval, mods);
-            const name = KEYSYM_NAMES.get(keyval);
-            if (accel && name)
-                accel = accel.replace(/0x[0-9A-Fa-f]+$/, name);
+            // Si GTK no conoce el keysym (lo escribe como "0x...") o es uno
+            // de los ambiguos, guardamos el keycode real con el mismo prefijo
+            // de modificadores.
+            if (accel && keycode > 0 &&
+                (KEYSYMS_USE_KEYCODE.has(keyval) || /0x[0-9A-Fa-f]+$/.test(accel))) {
+                const prefix = accel.replace(/[^<>]+$/, '');
+                accel = `${prefix}0x${keycode.toString(16)}`;
+            }
             if (accel) {
                 shortcutRow.text = accel;
                 settings.set_strv('llm-popup-shortcut', [accel]);

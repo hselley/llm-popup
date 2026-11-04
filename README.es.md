@@ -25,7 +25,8 @@ APIs **compatibles con OpenAI**, **Anthropic (Claude)** y **Google Gemini**.
   GSettings.
 - Compatible con **teclas especiales**: la tecla **Copilot** de los portátiles
   ASUS emite `Shift`+`Super`+`F23`; según la versión de `xkeyboard-config`
-  produce `F23` (≤ 2.48) o `XF86Assistant` (≥ 2.49).
+  produce `F23` (≤ 2.48) o `XF86Assistant` (≥ 2.49). Usa el botón de captura
+  para que se guarde el keycode correcto.
 - El campo de texto **recupera el foco al hacer clic** sobre él.
 - `Enter` envía · `Shift`+`Enter` añade salto de línea.
 
@@ -94,10 +95,17 @@ después pulsa la tecla.
 La tecla Copilot emite `Shift`+`Super`+`F23`. Lo que produce ese acorde depende
 de la versión de `xkeyboard-config`:
 
-| `xkeyboard-config` | Keysym | Atajo a usar |
+| `xkeyboard-config` | Keysym | Cómo asignarlo |
 |---|---|---|
 | ≤ 2.48 | `F23` | `<Shift><Super>F23` |
-| ≥ 2.49 | `XF86Assistant` | `<Shift><Super>XF86Assistant` |
+| ≥ 2.49 | `XF86Assistant` | Usa el botón de captura |
+
+Con `xkeyboard-config` ≥ 2.49, `XF86Assistant` también aparece en un segundo
+keycode virtual (`591`, `KEY_ASSISTANT`) en el nivel base. Mutter resuelve un
+keysym al primer nivel donde aparece, así que escribir
+`<Shift><Super>XF86Assistant` asigna el keycode equivocado. El botón de captura
+guarda el keycode físico (por ejemplo `<Shift><Super>0xc9`), que no es ambiguo.
+También puedes escribir la forma con keycode a mano si la conoces.
 
 Comprobar qué emite una tecla: `wev` (Wayland) o `evtest` (nivel dispositivo).
 
